@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+   <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- <a-entity id="rain" particle-system="preset: rain; color: #24CAFF; particleCount: 5000"></a-entity> -->
+
+      <a-assets>
+  <a-asset-item id="nvm1" src="assets/360images/nvm1.jpg"></a-asset-item>
+        </a-assets>
+        <a-sky src="#nvm1" rotation="0 -130 0"></a-sky>
+
+             <a-text font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5"
+                     rotation="0 15 0"></a-text>
+
+      <a-entity id="leftHand" hand-controls="left"></a-entity>
+<a-entity id="rightHand" hand-controls="right"></a-entity>
+
+      <!-- Match Oculus Go controller if present, regardless of hand. -->
+<!-- <a-entity oculus-go-controls></a-entity>
+
+<!-- Match Oculus Go controller if present and for specified hand. -->
+<!-- <a-entity oculus-go-controls="hand: left"></a-entity>
+<a-entity oculus-go-controls="hand: right"></a-entity> -->
+
+
+    </a-scene>
+  </body>
+</html>
