@@ -23,8 +23,8 @@
 
   <a-entity gltf-model="#hammer" scale="0.1 0.1 0.1" position="0.83 0.22141 2"></a-entity>
     <a-entity class="throwable" dynamic-body gltf-model="#baseball" scale="0.00247 0.00247 0.00247" position="0.34154 -0.04975 -1.12074"></a-entity>
-      <a-entity id="leftHand" hand-controls="left"></a-entity>
-<a-entity id="rightHand" hand-controls="right"></a-entity>
+      <a-entity id="leftHand" hand-controls="left" grab></a-entity>
+<a-entity id="rightHand" hand-controls="right" grab></a-entity>
 
       <!-- Match Oculus Go controller if present, regardless of hand. -->
 <!-- <a-entity oculus-go-controls></a-entity>
