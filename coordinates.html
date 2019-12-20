@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script> -->
+  <script>
+   AFRAME.registerComponent('cursor-position', {
+  tick() {
+
+    var wpVector = new THREE.Vector3()
+    newValue=this.el.object3D.getWorldPosition(wpVector);
+    const stringCoords = AFRAME.utils.coordinates.stringify(newValue);
+    if (this.lastValue !== stringCoords) {
+      this.el.emit('positionChanged', newValue);
+      this.lastValue = stringCoords;
+    }
+  },
+});
+    </script>
+
+</head>
+<body>
+    <a-scene>
+       <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" opacity="1"></a-sky>
+        <a-camera id="my-camera">
+            <a-cursor >
+            </a-cursor>
+          <a-entity id="cursor" cursor-position position="0 0 -6">
+          </a-entity>
+        </a-camera>
+      <a-sphere color="red" position="-4.6779407820441286 -0.5808761730946914 3.0595177981695443" material= "side:double" scale="0.05 0.05 0.05"></a-sphere>
+    </a-scene>
+    <script>
+    document.getElementById('cursor')
+  .addEventListener('positionChanged', e => {
+    console.log('New position:', AFRAME.utils.coordinates.stringify(e.detail));
+  });
+    </script>
+</body>
+</html>
